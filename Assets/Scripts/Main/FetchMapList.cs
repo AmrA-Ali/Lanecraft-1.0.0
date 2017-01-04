@@ -8,19 +8,15 @@ public class FetchMapList : MonoBehaviour
     public static string PlaySceneName = "_Play";
     void Start()
     {
-        var ListofMaps = SaveLoadManager.GetAllMapsNames();
+        MapManager[] ListofMaps = MapManager.FetchMapsInfo();
         Button gb;
         for (int i = 0; i < ListofMaps.Length; i++)
         {
             gb = Instantiate(MapButton);
-            string name = ListofMaps[i].FilterFileExtension(SaveLoadManager.FileExtension);
-#if MOBILE_INPUT
-                name = name.Substring(name.LastIndexOf("/") + 1 );
-#else
-            name = name.Substring(name.IndexOf("\\") + 1);
-#endif
+            string name = ListofMaps[i].info.name; 
             gb.GetComponentInChildren<Text>().text = name;
             gb.name = PlaySceneName;
+            gb.GetComponent<SelectedMapSetter>().selectedMap = ListofMaps[i];
             gb.transform.SetParent(transform);
             gb.transform.localScale = new Vector3(1, 1, 1);
         }

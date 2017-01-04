@@ -7,64 +7,70 @@ using System.Collections.Generic;
 
 public class SaveLoadManager : MonoBehaviour
 {
-    public static String MapsFolder = Application.persistentDataPath + "/Maps/";
-    public static String FileExtension = ".dat";
+    public static string MapsFolder;
+    public static string InfoFolder ;
+    public static string BricksFolder ;
+    public static string FileExtension = ".dat";
+    public static void PrepareFolder()
+    {
+        MapsFolder = Application.persistentDataPath + "/Maps/";
+        BricksFolder = MapsFolder + "Bricks/";
+        InfoFolder = MapsFolder + "Info/";
+    }
     public static void CreateMapsFolder()
     {
+        PrepareFolder();
         Directory.CreateDirectory(MapsFolder);
+        Directory.CreateDirectory(InfoFolder);
+        Directory.CreateDirectory(BricksFolder);
     }
-    public static void SaveCurrentLego(String FileName)
+    public static void SaveCurrentLego(string FileName)
     {
         //Save(AddNew.TheSet, FileName);
     }
 
-    public static string[] GetAllMapsNames()
+    public static string[] FetchMapsInfoCodes()
     {
-        return Directory.GetFiles(Application.persistentDataPath + "/Maps");
+        PrepareFolder();
+        return Directory.GetFiles(InfoFolder);
     }
 
-
-    public static void Save(List<GameObject> TheSet, String FileName)
+    private static void Save(object obj, string fileName, string dir)
     {
-        MapHolder map = MapHolder.CreateMapHolder(TheSet);
-        Save(map, FileName);
-    }
-    public static void Save(List<List<Vector3>> ListofDots, String FileName)
-    {
-        MapHolder map = MapHolder.CreateMapHolder(ListofDots);
-        Save(map, FileName);
-    }
-    public static void Save(MapHolder map, String fileName)
-    {
-        String fullFileName = MapsFolder + fileName + FileExtension;
-
+        String fullFileName = dir + fileName + FileExtension;
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(fullFileName);
-
-        bf.Serialize(file, map);
+        bf.Serialize(file, obj);
         file.Close();
-
-        print("File saved successfully");
     }
-
-    public static MapHolder Load(string fileName)
+    public static void Save(Info info,string fileName)
     {
-        string fullFileName = MapsFolder + fileName + FileExtension;
-
+        Save(info, fileName, InfoFolder);
+    }
+    public static void Save(Bricks bricks, string fileName)
+    {
+        Save(bricks, fileName, BricksFolder);
+    }
+    private static object Load(string fileName, string dirName)
+    {
+        string fullFileName = dirName + fileName + FileExtension;
         if (File.Exists(fullFileName))
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(fullFileName, FileMode.Open);
-            MapHolder m = (MapHolder)bf.Deserialize(file);
+            var m = bf.Deserialize(file);
             file.Close();
-            print("File loaded successfully");
             return m;
         }
-        else
-        {
-            print("File not found");
-        }
         return null;
+    }
+    public static Info LoadInfoFile(string fileName)
+    {
+        return (Info)Load(fileName, InfoFolder);
+    }
+    public static Bricks LoadBrickFile(string fileName)
+    {
+        return (Bricks)Load(fileName, BricksFolder);
     }
 
 }

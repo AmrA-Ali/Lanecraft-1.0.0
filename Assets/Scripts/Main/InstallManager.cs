@@ -9,8 +9,10 @@ public class InstallManager : MonoBehaviour {
     private const string BuildFileMessage =
         "totallyCalculated Games\n\nLanecraft v1.0.0\n©Everything Reserved";
     private static string BuildFileName = Application.persistentDataPath+ "/Build.ini";
+
     void Awake()
     {
+        SaveLoadManager.PrepareFolder();//brute
         if (!File.Exists(BuildFileName)) //first time running game, create required folders
         {
             CreateBuildFile(); 
