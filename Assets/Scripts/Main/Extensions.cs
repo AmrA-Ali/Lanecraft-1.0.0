@@ -5,7 +5,13 @@ public static class Extensions
 {
     public static string FilterFileExtension(this string s, string ext)
     {
-        return s.Substring(0, s.Length - ext.Length);
+#if !MOBILE_INPUT
+                s = s.Substring(s.LastIndexOf("/") + 1 );
+#else
+        s = s.Substring(s.IndexOf("\\") + 1);
+#endif
+        s = s.Substring(0, s.Length - ext.Length);
+        return s;
     }
     public static void ActivateFirstChild(this GameObject obj)
     {
