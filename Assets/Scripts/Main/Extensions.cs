@@ -3,6 +3,7 @@ using System.Collections;
 
 public static class Extensions
 {
+    #region manipulations
     public static string FilterFileExtension(this string s, string ext)
     {
 #if !MOBILE_INPUT
@@ -13,6 +14,9 @@ public static class Extensions
         s = s.Substring(0, s.Length - ext.Length);
         return s;
     }
+    #endregion
+
+    #region organization
     public static void ActivateFirstChild(this GameObject obj)
     {
         obj.transform.GetChild(0).gameObject.SetActive(true);
@@ -60,4 +64,23 @@ public static class Extensions
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(obj.name.Split('_')[1]);
     }
+    #endregion
+
+
+    #region objects
+    public static void ViewWholeMap(this Camera cam,Vector3 minBound, Vector3 maxBound, Vector3 center)
+    {
+        cam.fieldOfView = 70;
+        cam.transform.position = new Vector3(center.x, maxBound.y + 30, minBound.z - 75);
+        cam.transform.LookAt(center);
+    }
+    public static Map map(this GameObject gb)
+    {
+        return Map.curr;
+    }
+    public static void setMap(this GameObject gb, Map map)
+    {
+        Map.curr = map;
+    }
+    #endregion
 }

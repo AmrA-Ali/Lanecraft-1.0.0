@@ -47,7 +47,7 @@ public class GE_ToggleFullScreenUI : MonoBehaviour
 	void Start ()
 	{
 		
-		// Store current screen resolution
+		// Store curr screen resolution
 		m_DefWidth = Screen.width;
 		m_DefHeight = Screen.height;
 
