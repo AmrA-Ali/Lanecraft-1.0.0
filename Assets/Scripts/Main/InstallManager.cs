@@ -12,7 +12,7 @@ public class InstallManager : MonoBehaviour {
 
     void Awake()
     {
-        SaveLoadManager.PrepareFolder();//brute
+        //SaveLoadManager.PrepareFolder();//brute
         if (!File.Exists(BuildFileName)) //first time running game, create required folders
         {
             CreateBuildFile(); 

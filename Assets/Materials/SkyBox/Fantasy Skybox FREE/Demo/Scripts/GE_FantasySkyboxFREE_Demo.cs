@@ -135,7 +135,7 @@ public class GE_FantasySkyboxFREE_Demo : MonoBehaviour
 	// List of LightAndSky class
 	public LightAndSky[] m_LightAndSkyList;
 
-	// Index to current Skybox
+	// Index to curr Skybox
 	int m_CurrentSkyBox = 0;
 	
 #endregion // Variables

@@ -6,9 +6,10 @@ public class FetchMapList : MonoBehaviour
     [SerializeField]
     private Button MapButton;
     public static string PlaySceneName = "_Play";
-    void Start()
+
+    void Awake()
     {
-        MapManager[] ListofMaps = MapManager.FetchMapsInfo();
+        Map[] ListofMaps = Map.FetchMapsInfo();
         Button gb;
         for (int i = 0; i < ListofMaps.Length; i++)
         {
