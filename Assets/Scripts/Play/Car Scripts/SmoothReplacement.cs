@@ -20,14 +20,6 @@ namespace UnityStandardAssets.Utility
         [SerializeField]
         private float lookatdamp;
         int x = 0;
-        void Start()
-        {
-            
-        }
-        void Update()
-        {
-            print(WantedPos.parent.GetComponent<Rigidbody>().angularVelocity);
-        }
         void FixedUpdate()
         {
             if (!target)
