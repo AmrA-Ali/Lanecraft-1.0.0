@@ -94,7 +94,10 @@ public class Map
         gb2.transform.SetParent(mapParent.transform);
         TheSet.Add(gb2);
         if (building)
+        {
             bricks.list.Add(gb2.name);
+            Camera.main.UpdateCamera(gb2.transform.GetChild(0));
+        }
         return gb2;
     }
 
