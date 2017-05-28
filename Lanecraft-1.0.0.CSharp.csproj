@@ -135,7 +135,6 @@
     <Compile Include="Assets\Scripts\Main\SelectedMapSetter.cs" />
     <Compile Include="Assets\Scripts\Map.cs" />
     <Compile Include="Assets\Scripts\Play\Car Scripts\Car.cs" />
-    <Compile Include="Assets\Scripts\Play\Car Scripts\CarScriptsEnabler.cs" />
     <Compile Include="Assets\Scripts\Play\Car Scripts\CheckforGround.cs" />
     <Compile Include="Assets\Scripts\Play\Car Scripts\MastarCarController.cs" />
     <Compile Include="Assets\Scripts\Play\Car Scripts\MastarCarUserControl.cs" />
