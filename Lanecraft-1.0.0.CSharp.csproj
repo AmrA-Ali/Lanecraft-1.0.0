@@ -81,6 +81,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DoneSave.cs" />
+    <Compile Include="Assets\Initializer.cs" />
     <Compile Include="Assets\Materials\SkyBox\Fantasy Skybox FREE\Demo\Scripts\GE_FantasySkyboxFREE_Demo.cs" />
     <Compile Include="Assets\Materials\SkyBox\Fantasy Skybox FREE\Demo\Scripts\GE_FantasySkyboxFREE_UIs.cs" />
     <Compile Include="Assets\Materials\SkyBox\GE Common Assets\GE Orbit Camera\Scripts\GE_OrbitCamera.cs" />
