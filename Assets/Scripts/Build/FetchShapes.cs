@@ -4,9 +4,10 @@ public class FetchShapes : MonoBehaviour {
 
     [SerializeField]
     private Button MapButton;
-    private static GameObject[] Shapes = Resources.LoadAll<GameObject>("Prefabs/Shapes");   //Load shapes from prefabs file
+    private static GameObject[] Shapes;
     void Start()
     {
+        Shapes = Resources.LoadAll<GameObject>("Prefabs/Shapes");   //Load shapes from prefabs file
         Button gb;
         for (int i = 0; i < Shapes.Length; i++)
         {
@@ -21,6 +22,6 @@ public class FetchShapes : MonoBehaviour {
     }
     void AddBrickListener(string name)
     {
-        gameObject.map().AddBrick(name,true);
+        BuildSession.map.AddBrick(name,true);
     }
 }
