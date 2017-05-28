@@ -10,7 +10,7 @@ public class Map
     public Bricks bricks;
     public static Map curr;
     public static GameObject mapParent;
-    public static List<GameObject> TheSet = new List<GameObject>();
+    private List<GameObject> TheSet;
     private static GameObject[] Shapes = Resources.LoadAll<GameObject>("Prefabs/Shapes");
     private static GameObject FinishLinePrefab = Resources.Load<GameObject>("Prefabs/YOUJUSTWON");
     #endregion
@@ -18,6 +18,7 @@ public class Map
     #region ctor
     public Map()
     {
+        TheSet = new List<GameObject>();
         info = new Info();
         bricks = new Bricks();
     }
@@ -65,7 +66,7 @@ public class Map
         }
         AddFinishLine();
     }
-    public static void RemoveLastObject()
+    public void RemoveLastObject()
     {
         if (TheSet.Count >= 1)
         {
@@ -118,7 +119,7 @@ public class Map
         ClearSet();
         return temp;
     }
-    private static void ClearSet()
+    private void ClearSet()
     {
         TheSet.Clear();
     }
