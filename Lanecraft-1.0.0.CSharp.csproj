@@ -81,8 +81,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\DoneSave.cs" />
-    <Compile Include="Assets\Initializer.cs" />
     <Compile Include="Assets\Materials\SkyBox\Fantasy Skybox FREE\Demo\Scripts\GE_FantasySkyboxFREE_Demo.cs" />
     <Compile Include="Assets\Materials\SkyBox\Fantasy Skybox FREE\Demo\Scripts\GE_FantasySkyboxFREE_UIs.cs" />
     <Compile Include="Assets\Materials\SkyBox\GE Common Assets\GE Orbit Camera\Scripts\GE_OrbitCamera.cs" />
@@ -122,9 +120,10 @@
     <Compile Include="Assets\Materials\SkyBox\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_DemoPlaySound.cs" />
     <Compile Include="Assets\Materials\SkyBox\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_OpenOtherScene.cs" />
     <Compile Include="Assets\Materials\SkyBox\GUI Animator\GUI Animator FREE\Demo Basic (CSharp)\Scripts\GUIAnimatorFREEDemo.cs" />
-    <Compile Include="Assets\SavingTest.cs" />
+    <Compile Include="Assets\Scripts\Build\BuildSession.cs" />
+    <Compile Include="Assets\Scripts\Build\DoneSave.cs" />
     <Compile Include="Assets\Scripts\Build\FetchShapes.cs" />
-    <Compile Include="Assets\Scripts\BuildSession.cs" />
+    <Compile Include="Assets\Scripts\Initializer.cs" />
     <Compile Include="Assets\Scripts\Main\CheckThereAreMaps.cs" />
     <Compile Include="Assets\Scripts\Main\Checker.cs" />
     <Compile Include="Assets\Scripts\Main\CountMaps.cs" />
@@ -155,6 +154,7 @@
     <Compile Include="Assets\Scripts\Play\Start\Stopwatch.cs" />
     <Compile Include="Assets\Scripts\Play\Start\TogglePhysics.cs" />
     <Compile Include="Assets\Scripts\SaveLoadManager.cs" />
+    <Compile Include="Assets\Scripts\SavingTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Materials\SkyBox\Fantasy Skybox FREE\Fog and Ambient reference.txt" />

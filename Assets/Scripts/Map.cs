@@ -61,7 +61,6 @@ public class Map
         FetchBricks();
         foreach (string brickName in bricks.list)
         {
-            // MonoBehaviour.print(brickName);
             AddBrick(brickName);
         }
         AddFinishLine();

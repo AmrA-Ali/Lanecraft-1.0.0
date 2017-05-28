@@ -7,7 +7,8 @@ public class DoneSave : MonoBehaviour {
         GetComponent<Button>().onClick.AddListener(delegate { Confirm(); });
 	}
     void Confirm()  {
-        gameObject.map().info.name = mapName.text;
-        gameObject.map().Save();
+        BuildSession.map.info.name = mapName.text;
+        BuildSession.map.Save();
+        BuildSession.map = new global::Map();
     }
 }
